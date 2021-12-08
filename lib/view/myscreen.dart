@@ -70,24 +70,28 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         ),
         floatingActionButton: SpeedDial(
           animatedIcon: AnimatedIcons.menu_close,
+          backgroundColor: Colors.black,
+          overlayColor: Colors.black,
+          overlayOpacity: 0.4,
           children: [
             SpeedDialChild(
               child: Icon(Icons.add),
-              label: 'Increment',
+              label: 'Increment Counter',
               onTap: () {
-                con.onPressed;
+                con.onPressed();
               },
             ),
             SpeedDialChild(
               child: Icon(Icons.arrow_right),
-              label: 'Increment',
+              backgroundColor: Colors.green,
+              label: 'Next Screen',
               onTap: () {
                 con.gotoSecondRoute(context);
               },
             ),
           ],
           //onPressed: con.onPressed,
-          tooltip: 'Increment',
+          //tooltip: 'Increment',
           child: Icon(Icons.add),
         ));
   }
