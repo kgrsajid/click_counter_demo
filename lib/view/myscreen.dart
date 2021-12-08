@@ -61,7 +61,7 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$con.counter',
+              '${con.counter}',
               style: TextStyle(fontSize: 25),
             ),
           ],
