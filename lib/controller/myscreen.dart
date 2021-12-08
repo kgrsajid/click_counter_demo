@@ -1,5 +1,6 @@
 import 'package:mvc_application/controller.dart';
-//import 'package:clickcounter/model/myscreen.dart';
+
+import 'package:clickcounter/route/second.dart';
 
 part '../model/myscreen.dart';
 
@@ -14,7 +15,14 @@ class Controller extends ControllerMVC {
 
   /// You're free to mimic Flutter's own API
   /// The Controller is able to talk to the View (the State object)
-  void onPressed() => setState(() => model._incrementCounter());
+  //void onPressed() => setState(() => model._incrementCounter());
+
+  void onPressed(BuildContext context) => (BuildContext context) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SecondRoute()),
+        );
+      };
 
   int get counter => model.integer;
 
