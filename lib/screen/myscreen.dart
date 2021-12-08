@@ -10,7 +10,7 @@ class MyScreen extends AppState {
           theme: ThemeData(
             // Application theme data, you can set the colors for the application as
             // you want
-            primarySwatch: Colors.cyan,
+            primarySwatch: Colors.indigo,
           ),
           home: MyHomePage(title: 'Clicker Counter Home'),
         );
