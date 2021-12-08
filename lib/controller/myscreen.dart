@@ -15,17 +15,24 @@ class Controller extends ControllerMVC {
 
   /// You're free to mimic Flutter's own API
   /// The Controller is able to talk to the View (the State object)
-  //void onPressed() => setState(() => model._incrementCounter());
+  void onPressed() => setState(() => model._incrementCounter());
 
-  void onPressed(BuildContext context) => (BuildContext context) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SecondRoute()),
-        );
-      };
+  // void onPressed(BuildContext context) => (BuildContext context) {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => SecondRoute()),
+  //   );
+  // };
 
   int get counter => model.integer;
 
   /// The Controller knows how to 'talk to' the Model.
   void incrementCounter() => model._incrementCounter();
+
+  void gotoSecondRoute(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecondRoute()),
+    );
+  }
 }

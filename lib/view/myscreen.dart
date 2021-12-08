@@ -68,7 +68,10 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: con.onPressed,
+        //onPressed: con.onPressed,
+        onPressed: () {
+          con.gotoSecondRoute(context);
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
