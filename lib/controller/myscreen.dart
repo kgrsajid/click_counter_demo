@@ -1,5 +1,7 @@
 import 'package:mvc_application/controller.dart';
-import 'package:clickcounter/model/myscreen.dart';
+//import 'package:clickcounter/model/myscreen.dart';
+
+part '../model/myscreen.dart';
 
 class Controller extends ControllerMVC {
   factory Controller() => _this ??= Controller._();
