@@ -1,5 +1,6 @@
 import 'package:mvc_application/view.dart';
 import 'package:mvc_application/controller.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'package:clickcounter/controller/myscreen.dart';
 
@@ -67,11 +68,25 @@ class _MyHomePageState extends StateMVC<MyHomePage> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: SpeedDial(
+          animatedIcon: AnimatedIcons.menu_close,
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.add),
+              label: 'Increment',
+              onTap: () {
+                con.onPressed;
+              },
+            ),
+            SpeedDialChild(
+              child: Icon(Icons.arrow_right),
+              label: 'Increment',
+              onTap: () {
+                con.gotoSecondRoute(context);
+              },
+            ),
+          ],
           //onPressed: con.onPressed,
-          onPressed: () {
-            con.gotoSecondRoute(context);
-          },
           tooltip: 'Increment',
           child: Icon(Icons.add),
         ));

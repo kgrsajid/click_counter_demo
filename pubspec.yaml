@@ -1,5 +1,5 @@
 name: clickcounter
-description: A new Flutter project.
+description: MVC tweak of the default Click Counter Flutter project.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
   mvc_application: ^8.0.0
+  flutter_speed_dial: ^4.6.6
 
 dev_dependencies:
   flutter_test:
