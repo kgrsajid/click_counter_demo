@@ -18,7 +18,8 @@ class MyHomePage extends StatefulWidget {
   State createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+//class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends StateMVC<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
