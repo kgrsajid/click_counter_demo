@@ -1,9 +1,9 @@
 import 'package:mvc_application/view.dart';
-import 'package:clickcounter/main.dart';
+import 'package:clickcounter/view/myscreen.dart';
 
-class View extends AppState {
-  factory View() => _this ??= View._();
-  View._()
+class MyScreen extends AppState {
+  factory MyScreen() => _this ??= MyScreen._();
+  MyScreen._()
       : super(
           // Application name
           title: 'Flutter Stateful Clicker Counter',
@@ -14,5 +14,5 @@ class View extends AppState {
           ),
           home: MyHomePage(title: 'Clicker Counter Home'),
         );
-  static View? _this;
+  static MyScreen? _this;
 }
