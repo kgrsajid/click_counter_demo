@@ -1,5 +1,5 @@
 import 'package:mvc_application/view.dart';
-import 'package:clickcounter/model/myscreen.dart';
+import 'package:clickcounter/view/myscreen.dart';
 
 class MyScreen extends AppState {
   factory MyScreen() => _this ??= MyScreen._();
