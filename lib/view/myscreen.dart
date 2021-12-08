@@ -1,4 +1,5 @@
 import 'package:mvc_application/view.dart';
+import 'package:mvc_application/controller.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -20,6 +21,11 @@ class MyHomePage extends StatefulWidget {
 
 //class _MyHomePageState extends State<MyHomePage> {
 class _MyHomePageState extends StateMVC<MyHomePage> {
+  _MyHomePageState() : super(Controller()) {
+    con = controller as Controller;
+  }
+  late Controller con;
+
   int _counter = 0;
 
   void _incrementCounter() {
