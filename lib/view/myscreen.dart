@@ -1,4 +1,8 @@
 import 'package:mvc_application/view.dart';
+import 'package:mvc_application/controller.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+
+import 'package:clickcounter/controller/myscreen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -15,22 +19,15 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+//class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends StateMVC<MyHomePage> {
+  _MyHomePageState() : super(Controller()) {
+    con = controller as Controller;
   }
+  late Controller con;
 
   @override
   Widget build(BuildContext context) {
@@ -41,41 +38,61 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: Column(
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                '${con.counter}',
+                style: TextStyle(fontSize: 25),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: SpeedDial(
+          animatedIcon: AnimatedIcons.menu_close,
+          backgroundColor: Colors.black,
+          overlayColor: Colors.black,
+          overlayOpacity: 0.4,
+          children: [
+            SpeedDialChild(
+              child: Icon(Icons.add),
+              label: 'Increment Counter',
+              onTap: () {
+                con.onPressed();
+              },
             ),
-            Text(
-              '$_counter',
-              style: TextStyle(fontSize: 25),
+            SpeedDialChild(
+              child: Icon(Icons.arrow_right),
+              backgroundColor: Colors.green,
+              label: 'Next Screen',
+              onTap: () {
+                con.gotoSecondRoute(context);
+              },
             ),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+          //onPressed: con.onPressed(),
+          //tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ));
   }
 }

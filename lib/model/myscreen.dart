@@ -1,18 +1,7 @@
-import 'package:mvc_application/view.dart';
-import 'package:clickcounter/view/myscreen.dart';
+part of '../controller/myscreen.dart';
 
-class MyScreen extends AppState {
-  factory MyScreen() => _this ??= MyScreen._();
-  MyScreen._()
-      : super(
-          // Application name
-          title: 'Flutter Stateful Clicker Counter',
-          theme: ThemeData(
-            // Application theme data, you can set the colors for the application as
-            // you want
-            primarySwatch: Colors.lightGreen,
-          ),
-          home: MyHomePage(title: 'Clicker Counter Home'),
-        );
-  static MyScreen? _this;
+class _Model {
+  int get integer => _integer;
+  int _integer = 0;
+  int _incrementCounter() => ++_integer;
 }

@@ -2,7 +2,7 @@
 
 import 'package:mvc_application/view.dart';
 
-import 'model/myscreen.dart';
+import 'route/myscreen.dart';
 
 void main() => runApp(MyApp());
 
